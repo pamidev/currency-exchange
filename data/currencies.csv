@@ -1,0 +1,35 @@
+nazwa,krotność,waluta
+bat (Tajlandia),1,THB
+dolar amerykański,1,USD
+dolar australijski,1,AUD
+dolar Hongkongu,1,HKD
+dolar kanadyjski,1,CAD
+dolar nowozelandzki,1,NZD
+dolar singapurski,1,SGD
+euro,1,EUR
+forint (Węgry),100,HUF
+frank szwajcarski,1,CHF
+funt szterling,1,GBP
+hrywna (Ukraina)*),1,UAH
+jen (Japonia),100,JPY
+korona czeska,1,CZK
+korona duńska,1,DKK
+korona islandzka,100,ISK
+korona norweska,1,NOK
+korona szwedzka,1,SEK
+kuna (Chorwacja),1,HRK
+lej rumuński,1,RON
+lew (Bułgaria),1,BGN
+lira turecka,1,TRY
+nowy izraelski szekel,1,ILS
+peso chilijskie,100,CLP
+peso filipińskie,1,PHP
+peso meksykańskie,1,MXN
+rand (Republika Południowej Afryki),1,ZAR
+real (Brazylia),1,BRL
+ringgit (Malezja),1,MYR
+rupia indonezyjska,10000,100IDR
+rupia indyjska,100,INR
+won południowokoreański,100,KRW
+yuan renminbi (Chiny),1,CNY
+SDR (MFW),1,XDR
