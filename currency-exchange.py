@@ -1,7 +1,8 @@
 from requests import get
+from datetime import datetime
 
 
-def currency_check(currency):
+def currency_check(currency):  # walidator walut do poprawy
     has_3 = False
     has_alpha = False
     if len(currency) == 3:
@@ -12,18 +13,17 @@ def currency_check(currency):
     if has_3 and has_alpha:
         return True
 
-def data_check(data):
-    if len(data) == 10:
-        try:
-            data_to_check = data.split("-")
-            if len(data_to_check[0]) == 4 and len(data_to_check[1]) == 2 and len(data_to_check[2]) == 2:
-                return True
-            else:
-                return False
-        except:
+def date_validator(date):
+    try:
+        datetime.strptime(date, '%Y-%m-%d')
+        if date >= "2002-01-02":
+            return True
+        else:
+            print("Data nie może być sprzed 2002-01-02.")
             return False
-    else:
-        False
+    except ValueError:
+        print("Niewłaściwy format daty.")
+        return False
      
 
 print("Program przelicza kursy walut na złotówki (PLN) wg kursów średnich z Tabeli A NBP.")
@@ -33,15 +33,15 @@ while currency_check(currency) is not True:
     currency = input("Podaj poprawnie walutę w standardzie 3 literownym, np. USD: ")
 currency = currency.upper()
 
-data = input("Podaj datę w formacie YYYY-MM-DD: ")
-while data_check(data) is not True:
-    data = input("Podaj poprawnie datę w formacie YYYY-MM-DD: ")
+date = input("Podaj datę w formacie RRRR-MM-DD: ")
+while date_validator(date) is not True:
+    data = input("Podaj poprawną datę w formacie RRRR-MM-DD: ")
 
-resp = get(f"http://api.nbp.pl/api/exchangerates/rates/a/{currency}/{data}/?format=json")
+resp = get(f"http://api.nbp.pl/api/exchangerates/rates/a/{currency}/{date}/?format=json")
 
 if resp.ok:
     stream = resp.json()
     ex_rate = stream['rates'][0]['mid']
-    print(f"Kurs 1 {currency} = {ex_rate} PLN w dniu {data}")
+    print(f"Kurs 1 {currency} = {ex_rate} PLN w dniu {date}")
 else:
     print("Brak danych.")
