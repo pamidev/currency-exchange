@@ -11,7 +11,6 @@ CURRENCIES = ("THB", "USD", "AUD", "HKD", "CAD", "NZD", "SGD", "EUR", "HUF",
 arguments = sys.argv[1:]
 to_many_args = len(arguments) > 2
 two_currency = len(arguments) == 2 and len(arguments[0]) == len(arguments[1]) == 3
-short_currency_code = len(arguments[0]) < 3 or len(arguments[1]) < 3
 
 currency = ""
 date = ""
@@ -21,9 +20,6 @@ if to_many_args:
     sys.exit(1)
 elif two_currency:
     print("You are trying to enter two arguments, which are probably currency code. Try again.")
-    sys.exit(1)
-elif short_currency_code:
-    print("Incorrect length of currency code. Check it and try again.")
     sys.exit(1)
 
 try:
@@ -56,7 +52,7 @@ except ValueError:
     print("The date is not entered correctly. Check it and try again.")
     sys.exit(1)
 
-response = get(f"http://api.nbp.pl/api/exchangerates/rates/a/{currency}/{date}/?format=json")
+response = get(f"https://api.nbp.pl/api/exchangerates/rates/a/{currency}/{date}/?format=json")
 
 if response.status_code == 200:
     stream = response.json()
