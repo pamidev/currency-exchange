@@ -17,13 +17,13 @@ currency = ""
 date = ""
 
 if to_many_args:
-    print("Wprowadzono za dużo argumentów. Spróbuj ponownie.")
+    print("Too many arguments entered. Try again.")
     sys.exit(1)
 elif two_currency:
-    print("Próbujesz wprowadzić dwa argumenty, które są prawdopodobnie kodami walut. Spróbuj ponownie.")
+    print("You are trying to enter two arguments, which are probably currency code. Try again.")
     sys.exit(1)
 elif short_currency_code:
-    print("Nieprawidłowa długość kodu waluty. Sprawdź ją i spróbuj ponownie.")
+    print("Incorrect length of currency code. Check it and try again.")
     sys.exit(1)
 
 try:
@@ -34,25 +34,26 @@ try:
             currency = argument.upper()
             arguments.remove(argument)
         if bad_currency:
-            print("Brak danych dla wprowadzonej waluty. Spróbuj wprowadzić inny kod waluty.")
+            print("No data available for this currency. Try with a different currency.")
             sys.exit(1)
 except IndexError:
     currency = ""
 
-print("Program przelicza kursy walut na złotówki (PLN) wg kursów średnich z Tabeli A NBP z podanego dnia.")
+print("This Python program converts currency exchange rates into Polish zlotys (PLN) "
+      "according to the average exchange rates from Table A of the National Bank of Poland on the given day.")
 
 while currency not in CURRENCIES:
-    currency = input("Wprowadź trzyliterowy kod waluty wg standardu ISO 4217: ").upper()
+    currency = input("Enter three-letter currency code according to the ISO 4217 standard: ").upper()
 
 try:
     date = arguments[0]
 except IndexError:
-    date = input("Podaj datę: ")
+    date = input("Enter date: ")
 try:
     date_to_format = parser.parse(date)
     date = datetime.strftime(date_to_format, '%Y-%m-%d')
 except ValueError:
-    print("Wprowadzono nieprawidłowo datę. Sprawdź ją i spróbuj ponownie.")
+    print("The date is not entered correctly. Check it and try again.")
     sys.exit(1)
 
 response = get(f"http://api.nbp.pl/api/exchangerates/rates/a/{currency}/{date}/?format=json")
@@ -61,12 +62,13 @@ if response.status_code == 200:
     stream = response.json()
     currency_name = stream['currency']
     exchange_rate = stream['rates'][0]['mid']
-    print(f"Kurs waluty {currency_name} w dniu {date} wynosi: 1 {currency} = {exchange_rate} PLN")
+    print(f"Currency exchange rate {currency_name} on {date} is: 1 {currency} = {exchange_rate} PLN")
 elif response.status_code == 400:
-    print("Wprowadzono nieprawidłowe dane. Sprawdź je i spróbuj ponownie.")
+    print("Incorrect data has been entered. Check it and try again.")
 elif response.status_code == 404:
-    print("Brak danych o kursie wybranej waluty w podanym dniu.")
+    print("No data available for this currency on the day.")
 elif response.status_code == 500:
-    print("Błąd serwera Narodowego Banku Polskiego.")
+    print("Server error of the National Bank of Poland.")
 else:
-    print("Brak połączenia z API Narodowego Banku Polskiego.")
+    print("Connection to API of the National Bank of Poland is not currently available.")
+    print("The reason is unknown.")
