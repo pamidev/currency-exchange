@@ -56,9 +56,8 @@ response = get(f"https://api.nbp.pl/api/exchangerates/rates/a/{currency}/{date}/
 
 if response.status_code == 200:
     stream = response.json()
-    currency_name = stream['currency']
     exchange_rate = stream['rates'][0]['mid']
-    print(f"Currency exchange rate {currency_name} on {date} is: 1 {currency} = {exchange_rate} PLN")
+    print(f"Currency exchange rate on {date} is: 1 {currency} = {exchange_rate} PLN")
 elif response.status_code == 400:
     print("Incorrect data has been entered. Check it and try again.")
 elif response.status_code == 404:
