@@ -18,7 +18,7 @@
 The purpose of the program is to use an external API (_Application Programming Interface_) to convert exchange rates based on the data provided by the user. 
 Thanks to this project, I learned how to use APIs and apply them to my another programming projects.
 
-[More about API](https://www.ibm.com/topics/rest-apis).
+[More about APIs](https://www.ibm.com/topics/rest-apis).
 
 
 ## Technologies Used
@@ -53,39 +53,44 @@ I assume you know how to cloning this repository. If not, I refer you to
 At the beginning You need to make sure you have Python version up to 3.9, 
 as one of the packages does not work with the latest versions of Python.
 
-Type in terminal:\
-`python --version`
-
-If You are seeing this answer (* - any digits):\
-`Python 3.9.*`\
-We are at home!
-
-Now You need to install _virtual environment_ like this:\
-`python -m venv venv`
-
-Next change directory `cd venv\Scripts` and then type `activate`.
-
-Finally type:\
-`pip install -r requirements.txt`\
-to install requirements in the previously created _virtual environment_.
-
-After installing the requirements, you can run the program like bellow.
+Type in terminal:
+```bash
+$ python --version
+```
+If You are seeing this answer (* - any digits):
+```bash
+$ python --version
+$ Python 3.9.*
+```
+We are at home! Now You need to install _virtual environment_ like this:
+```bash
+$ python -m venv venv
+$ cd venv\Scripts
+$ activate
+$ cd..
+$ cd..
+```
+and install click package in the previously created _virtual environment_:
+```bash
+$ pip install -r requirements.txt
+```
+After installing this, run the program like bellow.
 
 
 ## Usage
-How does one go about using it? It's simple. In terminal type:\
-`python currency-exchange.py`\
-to run program without any arguments
-
-or
-
-`python currency-exchange.py gbp`\
-to run program with GBP currency code for example as one of arguments
-
-or
-
-`python currency-exchange.py 20.11.2019 usd`\
-to run program with two arguments (date and currency code)
+How does one go about using it? It's simple. 
+To run program without any arguments type in terminal:
+```bash
+$ python currency-exchange.py
+```
+or to run program with GBP currency code for example as one of arguments:
+```bash
+$ python currency-exchange.py gbp
+```
+or to run program with two arguments (date and currency code):
+```bash
+$ python currency-exchange.py 20.11.2019 usd
+```
 
 
 ## Acknowledgements
