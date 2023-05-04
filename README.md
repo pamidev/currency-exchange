@@ -70,7 +70,7 @@ $ activate
 $ cd..
 $ cd..
 ```
-and install click package in the previously created _virtual environment_:
+and install dependencies in the previously created _virtual environment_:
 ```bash
 $ pip install -r requirements.txt
 ```
