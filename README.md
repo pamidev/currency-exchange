@@ -1,5 +1,5 @@
 # Currency Exchange
-> This Python program **converts currency exchange rates** into Polish zlotys (PLN) according 
+> This Python program converts currency exchange rates into Polish zlotys (PLN) according 
 > to the average exchange rates from Table A of the [National Bank of Poland](http://www.nbp.pl/) 
 > on a selected day (beginning from 2002-01-02).
 
@@ -15,7 +15,8 @@
 
 
 ## General Information
-The purpose of the program is to use an external API (_Application Programming Interface_) to convert exchange rates based on the data provided by the user. 
+The purpose of the program is to use an external API (_Application Programming Interface_) 
+to convert exchange rates based on the data provided by the user. 
 Thanks to this project, I learned how to use APIs and apply them to my another programming projects.
 
 [More about APIs](https://www.ibm.com/topics/rest-apis).
@@ -23,9 +24,9 @@ Thanks to this project, I learned how to use APIs and apply them to my another p
 
 ## Technologies Used
 - [Python](https://www.python.org/) - version 3.9.13
-- Python packages:
-  - _request_ - version 2.29.0
-  - _python-dateutil_ - version 2.8.2
+- Python third-party packages:
+  - [_requests_](https://pypi.org/project/requests/) - version 2.29.0
+  - [_python-dateutil_](https://pypi.org/project/python-dateutil/) - version 2.8.2
 - [NBP Web API](https://api.nbp.pl/en.html)
 
 
@@ -39,7 +40,7 @@ the program will ask for it itself.
 - Date can be entered in any way, for example: 
 _13.12.2011_, _"15 May 2015"_ or _2016-06-16_, or even _20091209_.
 
->**Note that** the date with spaces must be entered in _"quotation marks"_.
+> Note that the date with spaces must be entered in _"quotation marks"_.
 
 
 ## Screenshots
@@ -48,12 +49,14 @@ _13.12.2011_, _"15 May 2015"_ or _2016-06-16_, or even _20091209_.
 
 ## Setup
 I assume you know how to cloning this repository. If not, I refer you to 
-[this publication](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+[this publication](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 At the beginning You need to make sure you have Python version up to 3.9, 
 as one of the packages does not work with the latest versions of Python.
 
-Type in terminal:
+> If You don't have any Python version, download and install [from here](https://www.python.org/).
+
+To verify Python version, type in terminal:
 ```bash
 $ python --version
 ```
@@ -67,8 +70,8 @@ We are at home! Now You need to install _virtual environment_ like this:
 $ python -m venv venv
 $ cd venv\Scripts
 $ activate
-$ cd..
-$ cd..
+$ cd ..
+$ cd ..
 ```
 and install dependencies in the previously created _virtual environment_:
 ```bash
@@ -95,5 +98,5 @@ $ python currency-exchange.py 20.11.2019 usd
 
 ## Acknowledgements
 - This program was inspired by one of exercises of
-[the Practical Python](https://praktycznypython.pl/) educational program
-- Many thanks to [Krzysztof Mędrela](https://medrela.com/)
+[the Practical Python](https://praktycznypython.pl/) educational program.
+- Many thanks to [Krzysztof Mędrela](https://medrela.com/).
